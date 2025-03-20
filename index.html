@@ -1,27 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Note</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Device Hacked</title>
+    <style>
+        body {
+            background: black;
+            color: red;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 40px;
+            display: none;
+            animation: blink 0.8s infinite;
+        }
+        #loading {
+            font-size: 25px;
+            display: none;
+        }
+        #info, .user-info {
+            font-size: 20px;
+            color: #07bf00;
+            display: none;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+      #info{
+        color:white;
+      }
+      #device{
+        color:yellow;
+      }
+      #current-location{
+        color:#0b96da;
+      }
+      #Hacked{
+        color:white;
+        font-size:20px;
+      }
+      .im-theme > .user-info{
+        color:#c901d9;
+      }
+#fecebook-f{
+        color:#d97e01;
+      }
+    </style>
 </head>
 <body>
-  <input type="text" id="op">
-  <button onclick="save()">save</button>
-  
-  <h2 id="output"></h2>
-  
-[
-  <script>
-  
-  document.getElementById("output").innerHTML = localStorage.getItem("k1");
-  
-    function save(){
-      let text = document.getElementById("op").value;
-      localStorage.setItem("k1", text);
-      
-      document.getElementById("output").innerHTML = localStorage.getItem("k1");
-    }
-     
+    <h1>⚠ YOUR DEVICE HAS BEEN HACKED </h1>
+    <p id="loading">Loading...</p>
+    <div id="info">
+        <p>📍 Location: <span id="location">Fetching...</span></p>
+        <p>💻 IP Address: <span id="ip">Fetching...</span></p>
+        <p>📱 Device: <span id="device"></span></p>
+        
+    </div>
+
+    <div class="user-info" id="name"><strong>Name:</strong> MD Rakibul Hasan</div>
+    <div class="user-info" id="age"><strong>Age:</strong> 20</div>
+    <div class="user-info" id="father"><strong>Father Name:</strong> Unknown</div>
+    <div class="user-info" id="mother"><strong>Mother Name:</strong> Unknown</div>
+    <div class="user-info" id="status"><strong>Status:</strong> The study is Done</div>
+    <div class="user-info" id="current-location"><strong>Current Location:</strong> Durgapur, Andua</div>
+    <div class="user-info" id="HighSchool"><strong>High School :</strong>Amgachi S.B High School</div>
+      <div class="user-info" id="single"><strong>Relationship: </strong>Single</div>
+<div class="im-theme">
+       <div class="user-info" id="Works"><strong>Works at : </strong>SAE Job Care</div> 
+       
+      <div class="user-info" id="Works-at"><strong>Works at : </strong>Very Responsible person</div>   
+         <div class="user-info" id="gender"><strong> Gender : </strong>Male</div> 
+         <div class="user-info" id="birthday"><strong>Your Birthday : </strong>Decembor 20 , 1999</div>  
+       <div class="user-info" id="like"><strong> Like : </strong>Science Care DUET Admission Coaching</div>  
+        <div class="user-info" id="Like"><strong>Like : </strong>ইলেক্ট্রিশিয়ান ট্রেনিং এবং চাকরি বাংলাদেশ</div>        
+       
+     <div class="user-info" id="account"><strong>Account : </strong>Fecebook , Google</div>   
+         <div class="user-info" id="fecebook-f"><strong>Facebook Female Friend : </strong>MST Surovi , Atikhul H , Airin Akter Eva , Sharmin Sultana , Afrin Jannat Mim ,  Mst Maumita Khatun Juie</div>   
+        <div class="user-info" id="total-f-f"><strong>Total Facebook Friend : </strong>1.8K</div>   
+              
+      </div> 
+              <div class="user-info" id="Hacked"><strong>Your Info Hacked By Md Tuhin raja</strong></div>
+    <script>
     
-  </script>
+        document.addEventListener("DOMContentLoaded", () => {
+            setTimeout(() => {
+                document.querySelector("h1").style.display = "block";
+
+                setTimeout(() => {
+                    document.querySelector("h1").style.display = "none";
+                    document.getElementById("loading").style.display = "block";
+
+                    setTimeout(() => {
+                        document.getElementById("loading").style.display = "none";
+                        document.getElementById("info").style.display = "block";
+                        document.getElementById("device").innerText = navigator.userAgent;
+
+                        // IP ও Location পেতে
+                        fetch('https://api64.ipify.org?format=json')
+                            .then(response => response.json())
+                            .then(data => {
+                                document.getElementById("ip").innerText = data.ip;
+                            });
+
+                        fetch('https://ipapi.co/json/')
+                            .then(response => response.json())
+                            .then(data => {
+                                document.getElementById("location").innerText = `${data.city}, ${data.country_name}`;
+                            });
+
+                        // ভাইব্রেশন চালু
+                        if (navigator.vibrate) {
+                            navigator.vibrate(2000);
+                        }
+
+                        // ধাপে ধাপে ইনফরমেশন দেখানো
+                        const userInfoIds = ["name", "age", "father", "mother", "status", "current-location"
+                        ,"HighSchool","single","Hacked","Works","Works-at","gender","birthday","like","Like","fecebook-f","account","totla-f-f"];
+                        let delay = 170;
+
+                        userInfoIds.forEach((id, index) => {
+                            setTimeout(() => {
+                                document.getElementById(id).style.display = "block";
+                            }, delay * (index + 1));
+                        });
+
+                    }, 2000);
+                }, 600);
+            }, 500);
+        });
+    </script>
 </body>
 </html>
