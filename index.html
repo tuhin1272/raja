@@ -11,6 +11,8 @@
             font-family: 'Courier New', monospace;
             text-align: center;
             overflow: hidden;
+            width:100%;
+            height:100vh;
         }
         h1 {
             font-size: 40px;
@@ -62,8 +64,8 @@
 
     <div class="user-info" id="name"><strong>Name:</strong> MD Rakibul Hasan</div>
     <div class="user-info" id="age"><strong>Age:</strong> 20</div>
-    <div class="user-info" id="father"><strong>Father Name:</strong> Unknown</div>
-    <div class="user-info" id="mother"><strong>Mother Name:</strong> Unknown</div>
+    <div class="user-info" id="father"><strong>Father Name:</strong> Md Bukker ali</div>
+    <div class="user-info" id="mother"><strong>Mother Name:</strong> Mst Rashida begum</div>
     <div class="user-info" id="status"><strong>Status:</strong> The study is Done</div>
     <div class="user-info" id="current-location"><strong>Current Location:</strong> Durgapur, Andua</div>
     <div class="user-info" id="HighSchool"><strong>High School :</strong>Amgachi S.B High School</div>
@@ -79,10 +81,14 @@
        
      <div class="user-info" id="account"><strong>Account : </strong>Fecebook , Google</div>   
          <div class="user-info" id="fecebook-f"><strong>Facebook Female Friend : </strong>MST Surovi , Atikhul H , Airin Akter Eva , Sharmin Sultana , Afrin Jannat Mim ,  Mst Maumita Khatun Juie</div>   
-        <div class="user-info" id="total-f-f"><strong>Total Facebook Friend : </strong>1.8K</div>   
+        <div class="user-info" id="total"><strong>Total Facebook Friend : </strong>1.8K</div>   
               
       </div> 
               <div class="user-info" id="Hacked"><strong>Your Info Hacked By Md Tuhin raja</strong></div>
+              
+              
+              <br>
+              <br>
     <script>
     
         document.addEventListener("DOMContentLoaded", () => {
@@ -118,7 +124,7 @@
 
                         // ধাপে ধাপে ইনফরমেশন দেখানো
                         const userInfoIds = ["name", "age", "father", "mother", "status", "current-location"
-                        ,"HighSchool","single","Hacked","Works","Works-at","gender","birthday","like","Like","fecebook-f","account","totla-f-f"];
+                        ,"HighSchool","single","Works","Works-at","gender","birthday","like","Like","fecebook-f","account","total","Hacked"];
                         let delay = 170;
 
                         userInfoIds.forEach((id, index) => {
